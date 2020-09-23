@@ -238,7 +238,7 @@ To decode a peer ID:
 
 * If it starts with `1` or `Qm`, it's a bare [base58btc][base58btc] encoded
   [multihash][multihash]. Decode it according to the base58btc algorithm.
-* If it starts with a [multibase][multibase] prefix, it's a CIDv1
+* If it starts with a [multibase][multibase] prefix other than 1, it's a CIDv1
   CID. Decode it according to the multibase and [CID spec][cid-decoding].
   * Once decoded, verify that the CIDs multicodec is `libp2p-key`.
   * Finally, extract the multihash from the CID. This is the peer ID.
@@ -250,6 +250,7 @@ Examples:
   ([inspect](http://cid.ipfs.io/#bafzbeie5745rpv2m6tjyuugywy4d5ewrqgqqhfnf445he3omzpjbx5xqxe)).
 - `QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N` -- Peer ID (sha256) encoded as a raw base58btc multihash.
 - `12D3KooWD3eckifWpRn9wQpMG9R9hX3sD158z7EqHWmweQAJU5SA` -- Peer ID (ed25519, using the "identity" multihash) encoded as a raw base58btc multihash.
+- `z5AanNVJCxnXNseUcZy7eNdAXKmNKNNSTcysbDd1Y49Y32ttbD7DeHN` -- Peer ID (ed25519, using the "identity" multihash) encoded as a CID
 
 [multihash]: https://github.com/multiformats/multihash
 [multicodec]: https://github.com/multiformats/multicodec
